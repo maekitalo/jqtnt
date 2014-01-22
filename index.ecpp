@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+  <title>jQuery with tntnet demo</title>
+
+</head>
+<body>
+  <h1>Using jQuery with tntnet demo applications</h1>
+  <ul>
+   <li><a href="/datepicker">Datepicker demo</a></li>
+   <li><a href="/mainpage">Ajax with html demo</a></li>
+   <li><a href="/products">Json demo</a></li>
+  </ul>
+</body>
+</html>

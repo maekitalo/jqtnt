@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <title>Products</title>
+  <script type="text/javascript" src="/jquery.js"></script>
+
+  <script>
+    var currentRec = 0;
+
+    function loadData() {
+      $.getJSON('getproduct',
+        {
+          recno: currentRec
+        },
+        function (product) {
+          $("#name").html(product.name);
+          $("#price").html(product.price);
+        });
+    }
+
+    $(function() {
+      $("#prev").click(function () {
+        if (currentRec > 0)
+        {
+          --currentRec;
+          loadData();
+        }
+      });
+
+      $("#next").click(function () {
+        ++currentRec;
+        loadData();
+      });
+
+      loadData();  // initialize screen by loading the first record
+    });
+  </script>
+
+</head>
+<body>
+  <h1>Products</h1>
+  <table>
+   <tr>
+    <th>Name</th>
+    <td><span id="name"></span></td>
+   <tr>
+   <tr>
+    <th>Price</th>
+    <td><span id="price"></span></td>
+   </tr>
+  <table>
+  <input type="button" id="prev" value="previous">
+  <input type="button" id="next" value="next">
+</body>
+</html>

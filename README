@@ -1,0 +1,20 @@
+jqtnt
+=====
+
+jqtnt is a demonstration, how to integrate jQuery and jQuery UI into a tntnet
+application. It contains the example code from the _jQuery in Tntnet Howto_
+document.
+
+The examples are built as a standalone application. You need `cxxtools` and
+`tntnet` to build the application. After installing them execute the following
+commands to build:
+
+    autoreconf -i
+    ./configure
+    make
+
+To run the application execute
+
+    ./jqtnt
+
+Now you should have the tntnet web server running on port 8000.

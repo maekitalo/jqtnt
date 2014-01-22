@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>jQuery demo application</title>
+  <script type="text/javascript" src="/jquery.js"></script>
+
+  <script>
+    $(function() {
+      $("#page1").click( function() {
+        $("#content").load("page1");
+      });
+      $("#page2").click( function() {
+        $("#content").load("page2");
+      });
+    });
+  </script>
+
+</head>
+<body>
+  <h1>jQuery Ajax demo</h1>
+  <input type="button" id="page1" value="load page 1">
+  <input type="button" id="page2" value="load page 2">
+  <div id="content"></div>
+</body>
+</html>

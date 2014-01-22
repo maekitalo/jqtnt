@@ -1,0 +1,51 @@
+<%args>
+unsigned recno;
+</%args>
+<%pre>
+
+#include <cxxtools/serializationinfo.h>
+#include <cxxtools/jsonserializer.h>
+
+// for cxxtools version >= 2.3 we can use a helper:
+//#include <cxxtools/json.h>
+
+// we define a data structure:
+struct Product
+{
+  std::string name;
+  double price;
+};
+
+// to convert the struct to JSON we need to make it serializable by defining a
+// serialization operator for that:
+inline void operator<<= (cxxtools::SerializationInfo& si, const Product& product)
+{
+  si.addMember("name") <<= product.name;
+  si.addMember("price") <<= product.price;
+}
+
+// This is our "database"
+Product products[] = {
+  { "Milk", 1.5 },
+  { "Honey", 3.2 }
+};
+
+const unsigned productCount = sizeof(products)/sizeof(Product);
+
+</%pre>
+<%cpp>
+
+  if (recno < productCount)
+  {
+    // convert the selected record to JSON using the JSON serializer of cxxtools:
+
+    // with cxxtools version < 2.3:
+    cxxtools::JsonSerializer serializer(reply.out());
+    serializer.serialize(products[recno]);
+
+    // with cxxtools version >= 2.3 we can simplify that:
+    //reply.out() << cxxtools::Json(products[recno]);
+
+  }
+
+</%cpp>

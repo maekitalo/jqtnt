@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <title>jQuery datepicker demo</title>
+  <script type="text/javascript" src="/jquery.js"></script>
+  <script type="text/javascript" src="/ui/ui/jquery.ui.core.js"></script>
+  <script type="text/javascript" src="/ui/ui/jquery.ui.datepicker.js"></script>
+  <link rel="stylesheet" href="/ui/themes/base/jquery-ui.css">
+
+  <script>
+    $(function() {
+      $( "#datepicker" ).datepicker();
+    });
+  </script>
+
+</head>
+<body>
+  <h1>jdate</h1>
+  <p>Date: <input type="text" id="datepicker"></p>
+</body>
+</html>
